@@ -101,11 +101,18 @@ public class Trailer
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
-
+        String movieId ="";
         // The detail Activity called via intent.  Inspect the intent for forecast data.
         Intent intent = getActivity().getIntent();
         if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
-            String movieId = intent.getStringExtra(Intent.EXTRA_TEXT);
+             movieId = intent.getStringExtra(Intent.EXTRA_TEXT);
+        }
+        else {
+            if (getArguments()!=null){
+            movieId= (String) getArguments().get(Intent.EXTRA_TEXT);
+
+            }
+        }
             FetchMovieDetails task = new FetchMovieDetails();
 
             Log.v(LOG_TAG, "inside detailActivit");
@@ -158,7 +165,7 @@ public class Trailer
 
 
 
-        }
+
 
         return rootView;
     }

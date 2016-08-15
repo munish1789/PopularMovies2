@@ -22,7 +22,7 @@ android {
         mavenCentral()
     }
     buildTypes.each {
-        it.buildConfigField 'String', 'OPEN_MOVIES_API_KEY', MYAPIKEY
+        it.buildConfigField 'String', 'OPEN_MOVIES_API_KEY', '\"a0083c29a4115493069418153f6939ed\"'
     }
 
 }
